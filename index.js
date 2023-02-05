@@ -55,7 +55,6 @@ let users = [
     }
 ]
 
-
 function stringElements(str) {
     let arr = [];
     for(let i = 0; i < str.length; i++){
@@ -66,12 +65,16 @@ function stringElements(str) {
     return arr.join('');
 }
 
+let balanceSum = 0;
 
 for(let i = 0; i < users.length; i++){
-    let bal = stringElements(users[i].balance);
+    let bal = +stringElements(users[i].balance);
     // let bal = users[i].balance.replace('$', '').replace(',', '');
     // let bal = users[i].balance.split('$').join('').split(',').join('');
-    if(+bal > 2000){
+    balanceSum += bal;
+    if(bal > 2000){
         console.log(users[i].phone);
     }
 }
+
+console.log(`Sum: ${balanceSum.toFixed(2)}`);
